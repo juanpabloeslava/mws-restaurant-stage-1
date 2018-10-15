@@ -10,7 +10,9 @@ body,td,th,p{
 body {
 	background-color: #fdfdfd;
 	margin: 0;
-	position:relative;
+    position: relative;
+    display: flex;
+    flex-flow: column;
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
@@ -32,24 +34,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 0 20px;
 }
-article, 
-aside, 
-canvas, 
-details, 
-figcaption, 
-figure, 
-footer, 
-header, 
-hgroup, 
-menu, 
-nav, 
-section {
-  /* display: block; */
-    display: flex;
+/* article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+	display: flex;
+} */
+header, nav, 
+main,
+footer {
+    display: flex
 }
-#maincontent {
+
+main {
     background-color: #f3f3f3;
     min-height: 100%;
+    flex-direction: column;
 }
 #footer {
     background-color: #444;
@@ -114,98 +112,126 @@ nav h1 a {
 .map-container {
     background-color: #f3f3f3;
     height: 400px;
-    padding: 20px 0;
 }
 .map {
-    width: 100%;
+    max-width: 1280px;
     height: 100%;
-    /* max-width: 1280px; */
     margin: auto;
 }
 
-@media only screen and (max-width: 1023px) {
+@media only screen and (max-width: 599px) {
+    .map-container {
+        height: 300px;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 959px) {
     .map-container {
         padding: 0;
     }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
     .map-container {
         padding: 20px;
     }
 }
 
 @media only screen and (min-width: 1280px) {
-    .map {
-        margin: 0 auto;
-        max-width: 1280px;
+    .map-container {
+        padding: 20px;
     }
-
-}
-
-
-
-/* ====================== Restaurant Filtering ====================== */
-.selection-container {
-    background-color: #3397DB;
-}
-.filter-options {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-    /* max-width: 1280px; */
-    /* margin: auto; */
-    min-height: 60px;
-    align-items: center;
-}
-
-@media only screen and (min-width: 1280px) {
-    .filter-options {
-        max-width: 1280px;
+    .map {
         margin: auto;
     }
 }
 
+/* ====================== Restaurant Filtering ====================== */
+.selection-container {
+    background-color: #3397DB;
+    display: flex;
+
+}
+.filter-options {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    min-height: 60px;
+    align-items: center;
+    margin: auto;
+}
 .filter-options h2 {
-  color: white;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1;
-  margin: 0 20px;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
 }
 .filter-options select {
-  background-color: white;
-  border: 1px solid #fff;
-  font-family: Arial,sans-serif;
-  font-size: 11pt;
-  height: 35px;
-  letter-spacing: 0;
-  margin: 10px;
-  padding: 0 10px;
-  width: 300px;
+    background-color: white;
+    border: 1px solid #fff;
+    font-family: Arial,sans-serif;
+    font-size: 11pt;
+    height: 35px;
+    letter-spacing: 0;
+    padding: 0 10px;
 }
 
-@media only screen and (min-width: 960px) {
-    .filter-options  h2 {
-        /* max-width: 1280px; */
-        /* width: 100%; */
-        /* margin: auto; */
+@media only screen and (max-width: 599px) {
+    .selection-container {
+        padding: 10px;
     }
-
+    .filter-options {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .filter-options h2 {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .filter-options select:first-of-type {
+        margin-bottom: 10px;
+    }
     .filter-options select { 
-        width: 200px;
+        width: 100%;
+        margin-bottom: 0; 
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .selection-container {
+        padding: 0 0 0 20px;
+    }
+    .filter-options {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+    .filter-options h2 {
+        max-width: 100%;
+        margin-right: 10px;
+    }
+    .filter-options select {
+        width: 300px;
+        margin-right: 10px;
     }
 }
 
 /* ====================== Restaurant Listing ====================== */
-#restaurants-list {
-  background-color: #f3f3f3;
-  list-style: outside none none;
-  margin: 0;
-  padding: 30px 15px 60px;
-  text-align: center;
+.restaurants-list {
+    background-color: #f3f3f3;
+    list-style: outside none none;
+    margin: 0;
+    /* padding: 30px 15px 60px; */
+    padding: 1  0px 0 0 0;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
 }
-#restaurants-list li {
+.restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
@@ -215,7 +241,7 @@ nav h1 a {
   text-align: left;
   width: 270px;
 }
-#restaurants-list .restaurant-img {
+.restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
@@ -223,7 +249,7 @@ nav h1 a {
   min-height: 248px;
   min-width: 100%;
 }
-#restaurants-list li h1 {
+.restaurants-list li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
   font-size: 14pt;
@@ -233,11 +259,11 @@ nav h1 a {
   margin: 20px 0 10px;
   text-transform: uppercase;
 }
-#restaurants-list p {
+.restaurants-list p {
   margin: 0;
   font-size: 11pt;
 }
-#restaurants-list li a {
+.restaurants-list li a {
   background-color: orange;
   border-bottom: 3px solid #eee;
   color: #fff;
@@ -249,6 +275,23 @@ nav h1 a {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+@media only screen and (max-width: 599px) {
+  
+}
+
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+    
+}
+
+@media only screen and (min-width: 960px) and (max-width: 1279px) {
+   
+}
+
+@media only screen and (min-width: 1280px) {
+    
+}
+
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
