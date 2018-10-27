@@ -65,7 +65,7 @@ nav {
   width: 100%;
   height: 80px;
   background-color: #252831;
-  text-align: center;
+  text-align: center; 
 }
 nav h1 {
   margin: auto;
@@ -78,13 +78,13 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 15px 40px;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    /* width: calc(50% - 80px); */
     width: 100%;
+    display: flex
 }
 
 /* Display list items side by side */
@@ -310,10 +310,28 @@ nav h1 a {
 
 /* ====== HEADER and NAV ====== */
 
-.inside header {
+.inside header nav {
     width: 100%;
+    height: 100%;
     flex-direction: column;
 }
+.inside header nav h1 {
+    margin: auto;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+/* .inside header nav #breadcrumb {
+    padding: 15px 40px;
+    list-style: none;
+    background-color: #eee;
+    font-size: 17px;
+    margin: 0;
+    width: calc(50% - 80px);
+    width: 100%;
+    display: flex
+} */
 
 /* ====== MAIN ====== */
 
