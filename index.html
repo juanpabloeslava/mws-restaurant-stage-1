@@ -14,17 +14,20 @@
 <body>
   <header>
     <nav role="navigation">
-      <h1><a href="/">Restaurant Reviews</a></h1>
+      <h1 class="homeTitle"><a href="/">Restaurant Reviews</a></h1>
+      <h1 class="skipTitle"><a href="#selecRestaurants" class="skipLink">Skip to main content</a></h1>
     </nav>
+    <!-- skip to content -->
   </header>
 
   <main id="maincontent">
+    
     <!-- map -->
     <section id="map-container" class="map-container">
       <div id="map" class="map" role="application" aria-hidden="true"></div>
     </section>
     <!-- selection controls -->
-    <section class="selection-container" role="contentinfo">
+    <section class="selection-container" role="contentinfo" id="selecRestaurants">
       <div class="filter-options">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
@@ -36,7 +39,7 @@
       </div>
     </section>
     <!-- restaurant list -->
-    <section class="restaurantList-container" role="contentinfo">
+    <section class="restaurantList-container" role="contentinfo" id="listRestaurants">
         <ul id="restaurants-list" class="restaurants-list"></ul>
     </section>
   </main>

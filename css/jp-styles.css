@@ -60,30 +60,63 @@ main {
     text-transform: uppercase;
 }
 
+/* ====================== Skip to content ====================== */
+
+.skipLink {
+    position: absolute;
+    top: -300px;
+    padding: 15px;
+    background-color: #eee;
+    font-size: 15px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+
+.skipLink:focus {
+    top: 80px;
+    z-index: 10000;
+}
+
+ .inside .skipLink:focus {
+    top: 130px;
+    z-index: 10000;
+}
 /* ====================== Navigation ====================== */
+/* ====== HEADER and NAV ====== */
+
 nav {
-  width: 100%;
-  height: 80px;
-  background-color: #252831;
-  text-align: center; 
+    width: 100%;
+    /* height: 80px; */
+    background-color: #252831;
+    text-align: center; 
+    flex-direction: column;
 }
-nav h1 {
-  margin: auto;
+nav .homeTitle {
+    margin: auto;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
 }
-nav h1 a {
+nav .homeTitle a {
   color: #fff;
   font-size: 14pt;
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
 }
+nav .skipTitle {
+    margin: 0;
+}
+
 #breadcrumb {
-    padding: 15px 40px;
+    padding: 15px 0;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: 100%;
+    max-width: 100%;
     display: flex
 }
 
@@ -308,30 +341,7 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 
-/* ====== HEADER and NAV ====== */
 
-.inside header nav {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-}
-.inside header nav h1 {
-    margin: auto;
-    display: flex;
-    height: 80px;
-    justify-content: center;
-    align-items: center;
-}
-/* .inside header nav #breadcrumb {
-    padding: 15px 40px;
-    list-style: none;
-    background-color: #eee;
-    font-size: 17px;
-    margin: 0;
-    width: calc(50% - 80px);
-    width: 100%;
-    display: flex
-} */
 
 /* ====== MAIN ====== */
 
