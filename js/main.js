@@ -216,3 +216,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+/* 
+Off line usage: service workers
+*/
+
