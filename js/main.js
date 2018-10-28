@@ -160,6 +160,13 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
+  // additional attributes for accessibility
+  image.setAttribute('alt', `${restaurant.name} in ${restaurant.neighborhood}`);
+  image.setAttribute('id', `img-rest-${restaurant.id}`);
+  // for offline things
+  image.setAttribute('data-rest-id', restaurant.id);
+  image.setAttribute('data-img-status', `notloaded`);
+  // image
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
