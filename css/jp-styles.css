@@ -341,15 +341,7 @@ nav .skipTitle {
 
 /* ====================== Restaurant Details ====================== */
 
-
-
 /* ====== MAIN ====== */
-
-/* sections */
-/* .inside .restaurant-section,
-.inside .map-section {
-    width: 50%;
-} */
 
 .map-section .map-container {
     height: 800px;
@@ -369,6 +361,9 @@ nav .skipTitle {
   height: 100%;
   width: 100%;
 }
+.restaurant-container .restaurant-img {
+    max-width: 100%;
+}
 
 @media only screen and (max-width: 599px) {
     .inside main {
@@ -386,7 +381,6 @@ nav .skipTitle {
 
 @media only screen and (min-width: 600px) and (max-width: 959px) {
     .inside main {
-        /* display: flex; */
         flex-flow: column-reverse;
     }
     .inside .restaurant-section,
@@ -403,7 +397,7 @@ nav .skipTitle {
     }
     .inside .restaurant-section .restaurant-container,
     .inside .restaurant-section .reviews-container {
-        width: 50%;
+        max-width: 50%;
     }
 }
 
