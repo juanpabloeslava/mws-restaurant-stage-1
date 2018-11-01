@@ -15,7 +15,7 @@
   <header>
     <nav role="navigation">
       <h1 class="homeTitle"><a href="/">Restaurant Reviews</a></h1>
-      <h1 class="skipTitle"><a href="#selecRestaurants" class="skipLink">Skip to main content</a></h1>
+      <h1 class="skipTitle"><a href="#selecRestaurants" class="skipLink" aria-label="Skip to Content">Skip to main content</a></h1>
     </nav>
     <!-- skip to content -->
   </header>
@@ -23,16 +23,16 @@
   <main id="maincontent">
     <!-- map -->
     <section id="map-container" class="map-container">
-      <div id="map" class="map" role="application" aria-hidden="true"></div>
+      <div id="map" class="map" role="application" aria-label="Location" aria-hidden="true"></div>
     </section>
     <!-- selection controls -->
     <section class="selection-container" role="contentinfo" id="selecRestaurants">
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" name="neighborhoods" aria-label="Select Neighborhood" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" name="cuisines" aria-label="Select Cuisine" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
@@ -44,7 +44,7 @@
   </main>
 
   <footer id="footer" role="footer">
-    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
   </footer>
 
   <!-- SCRIPTS -->
