@@ -4,6 +4,28 @@ let restaurants,
 var newMap
 var markers = []
 
+
+/* 
+Off line usage: service workers
+*/
+
+// check if the browser supports service browsers
+if ('serviceWorker' in navigator) {
+  // if so, register it
+  navigator.serviceWorker.register('./sw.js') // --> this returns a promise
+  // if the registration fails, catch it
+  .catch (function (error) {
+    console.log (`There was an error. This one: ${error}`);
+  });
+}
+
+
+
+
+
+
+
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -216,7 +238,5 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
-/* 
-Off line usage: service workers
-*/
+
 
