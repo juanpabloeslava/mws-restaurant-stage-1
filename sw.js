@@ -1,4 +1,5 @@
 // service worker file JP
+// Last saved: 02.11.2018 14:40
 
 /* Service worker */
 const CACHE_VERSION = 1;
@@ -39,25 +40,7 @@ self.addEventListener ('install', function (event) {
             // add all the cached things
             return cache.addAll(thingsToCache);
         })
-    );
-});
-
-// Listen for Activate Event
-self.addEventListener('activate', function(event) {
-    event.waitUntil (
-        caches.keys()
-        .then( function (cacheNames) {
-            return Promise.all(
-                cacheNames.filter(function(cacheName) {
-                    // get all old cache versions
-                    return cacheName.startsWith('static-cache-') && cacheName != STATIC_CACHE;
-                }).map(function (cacheName) {
-                    // delete previous cache versions
-                    return caches.delete(cacheName);
-                })
-            );
-        })
-    );
+    ); 
 });
 
 // Listen for Fetch Event 
@@ -65,11 +48,15 @@ self.addEventListener ('fetch', function (event) {
     // respond to the request with our stored data first (offline first)
     event.respondWith (
         // look in the cached data for a match of the request
-        caches.match(event.request)
+        caches.match(event.request, {
+            // as suggested on last submision, but I don't really understand why does it help :(
+            ignoreSearch: true
+        })
         .then( function (response) {
             // If there's a match, return it, if not, fetch a request
             if (response) {
-                console.log (`Request ${event.request} was Found in Cache`); 
+                console.log (`Request was Found in Cache`); 
+                console.log (event.request); 
                 return response; 
             } else {
                 console.log (`Request ${event.request} was NOT FOUND in Cache. FETCHING NOW...`); 
