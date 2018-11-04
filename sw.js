@@ -64,9 +64,12 @@ self.addEventListener ('fetch', function (event) {
                 fetch (event.request)
                 // it worked, so go add the request to the cache, for later use
                 .then ( function (response) {
+                    // clone the response
+                    const clonedResponse = response.clone();
+                    // open cache using open(), put the default network request in the cache 
                     caches.open (STATIC_CACHE)
                     .then ( function (cache) {
-                        cache.put (event.request, response);
+                        cache.put (event.request, clonedResponse);
                     })
                     return response;
                 })
